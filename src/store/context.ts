@@ -1,5 +1,3 @@
-"use client";
-
 import { createContext, Dispatch } from "react";
 import { initialState, State } from "./types";
 import { Action } from "./actions";

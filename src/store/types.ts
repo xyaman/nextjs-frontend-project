@@ -1,9 +1,11 @@
 export interface State {
   users: User[];
+  editingUser: User | null,
 }
 
 export const initialState: State = {
   users: [],
+  editingUser: null,
 };
 
 // State data types definitions

@@ -6,23 +6,20 @@ import "@fontsource/roboto/700.css";
 
 // Components
 import Foo from "@/components/Foo";
-import StateProvider from "./StateProvider";
-import { Container, CssBaseline } from "@mui/material";
-import NavBar from "@/components/NavBar";
+import {
+  Container,
+} from "@mui/material";
 import UsersTable from "@/components/UsersTable";
 
 export default function Home() {
-
   return (
     <>
-      <CssBaseline />
-      <NavBar />
-      <StateProvider>
-        <Container>
-          <Foo />
-          <UsersTable />
-        </Container>
-      </StateProvider>
+      <Container>
+
+        {/* Users Table */}
+        <UsersTable />
+      </Container>
+
     </>
   );
 }

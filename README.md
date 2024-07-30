@@ -59,6 +59,10 @@ To access to the state from a csr component. We just need to use
 `useContext` and save the state in the component.
 
 ```ts
+import { StateContext } from "@/store/context";
+
+// ....
+
 const { state, dispatch } = useContext(StateContext);
 
 useEffect(() => {

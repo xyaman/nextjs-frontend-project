@@ -9,6 +9,8 @@
 - [x] Configure JS/TS config environment including Eslint and Prettier (10 points)
 - [x] Using TypeScript along with models, type and/or interfaces. (10 points)
   
-  
+# personal  
 - [ ] Check theme nextjs
 - [ ] Change loading... (not make it default) for sro
+- [ ] Check metadata
+- [ ] BUscador
