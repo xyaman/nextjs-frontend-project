@@ -18,6 +18,12 @@ export interface User {
   phone: string;
   website: string;
   company: Company;
+
+  // The image is taken from https://picsum.photos/
+  // So at the beggining the image WILL be null
+  // But because we fetch all the information at the same time, it
+  // SHOULDN'T be null
+  image_url: string | null;
 }
 
 export interface Address {

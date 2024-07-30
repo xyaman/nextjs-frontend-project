@@ -1,4 +1,4 @@
-import Card from "@/components/Card";
+import Foo from "@/components/Foo";
 import StateProvider from "./StateProvider";
 
 
@@ -8,7 +8,7 @@ export default function Home() {
       <div>
         Hello World
         <br></br>
-        <Card />
+        <Foo />
       </div>
     </StateProvider>
   );
