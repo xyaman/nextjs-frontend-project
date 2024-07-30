@@ -11,7 +11,7 @@ The application workd in desktop and mobile devices. The UI is very simple and
 it uses MUI for the components. The global state is made using the react context
 api. 
 
-It is hosted in [Vercel](https://nextjs-mini-project.vercel.app) so you can try
+It is hosted in [Vercel](https://nextjs-frontend-project-five.vercel.app/) so you can try
 a live demo.
 
 From the development perspective, I used TypeScript. I also used ESLint and Prettier
