@@ -1,33 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## This is a nextjs mini project that follows the following guidelines 
 
-## Getting Started
-
-First, run the development server:
+- Ensure the application is responsive on both desktop and mobile devices.
+- Implement features to add, edit, and delete users. There's no need to call an API or persist
+data for these actions, simply update the state/context. Whenever users are edited, the user
+list data will also be updated accordingly.
+- Perform unit testing with NextJS Testing Library
+- Create a README file detailing the application description, instructions on how to run it, and any additional information
+- Deployment to any host or cloud for live demo
+- Build a user interface using NextJS with MUI or any NextJS CSS/UI library.
+- Fetch JSON data from REST API endpoints.
+- Centralize state using Redux, NextJS Context or any state management 
+- Configure JS/TS config environment including Eslint and Prettier 
+- Using TypeScript along with models, type and/or interfaces. 
+  
+## Developing
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
