@@ -15,8 +15,6 @@ export default function EditUser(props: UserFormProps) {
   const { params } = props;
 
   useEffect(() => {
-    console.log(props);
-
     // Ideally, if the user is not in the store, we fetch it.
     // But in this case, we are going to fetch all the users,
     // simply because this project is a demo and doesn't have a real API.

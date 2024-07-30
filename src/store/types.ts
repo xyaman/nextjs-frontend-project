@@ -28,15 +28,16 @@ export interface User {
   image_url: string | null;
 }
 
+// For this project, we are going to ignore the rest of the address
 export interface Address {
   street: string;
-  suite: string;
   city: string;
-  zipcode: string;
+  suite: string | null;
+  zipcode: string | null;
   geo: {
     lat: string;
     lng: string;
-  };
+  } | null;
 }
 
 export interface Company {

@@ -5,11 +5,8 @@ export async function fetchUsersWithImages(): Promise<User[]> {
   const userRes = await fetch("https://jsonplaceholder.typicode.com/users");
   const userJSON: User[] = await userRes.json();
 
-  const imgsRes = await fetch("https://picsum.photos/v2/list");
-  const imgsJSON = await imgsRes.json();
-
-  return userJSON.map((user, i) => {
-    user.image_url = imgsJSON[i].download_url;
+  return userJSON.map((user) => {
+    user.image_url = `https://picsum.photos/200/300?random=${user.id}`;
     return user;
   });
 }

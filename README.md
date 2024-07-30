@@ -1,3 +1,22 @@
+This is a very small project and it uses NextJS. I tried to use as much as I 
+could from SSR capabilities. But because this project uses a global state, and 
+there aren't many pages, the SSR capabilities are not fully used, because almost 
+all the logic is in the client side.
+
+Because of the nature of the project, there is no much you can do with SEO. Only
+main page could be indexed by search engines. Edit and Add pages are not intended 
+to be indexed for obvious reasons.
+
+The application workd in desktop and mobile devices. The UI is very simple and
+it uses MUI for the components. The global state is made using the react context
+api. 
+
+It is hosted in [Vercel](https://nextjs-mini-project.vercel.app) so you can try
+a live demo.
+
+From the development perspective, I used TypeScript. I also used ESLint and Prettier
+to keep the code clean and consistent. 
+
 ## This is a nextjs mini project that follows the following guidelines 
 
 - Ensure the application is responsive on both desktop and mobile devices.
@@ -80,13 +99,19 @@ to use other alternative like [Redux](https://redux.js.org/) or
 ## Developing
 
 ```bash
+# Run local server
 npm install
 npm run dev
+
+# Build
+npm run build
+
+# Tests
+npm tests
+
+# Lint
+npx eslint .
+
+# Format (uses prettier)
+npx eslint . --fix
 ```
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

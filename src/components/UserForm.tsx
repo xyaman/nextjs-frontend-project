@@ -27,7 +27,59 @@ export default function UserForm(props: UserFormProps) {
   const [tempUser, setTempUser] = useState<User>(user);
   const router = useRouter();
 
+  const [validation, setValidation] = useState({
+    name: false,
+    username: false,
+    email: false,
+    phone: false,
+    website: false,
+    company: {
+      name: false,
+      catchPhrase: false,
+      bs: false,
+    },
+    address: {
+      street: false,
+      city: false,
+    },
+  });
+
   const handleSubmit = () => {
+    // Check is there are empty fields
+    // Can the app crash if we don't check this?
+    // Actually not, becuase there arent null values, just empty strings
+    if (
+      tempUser.name === "" ||
+      tempUser.username === "" ||
+      tempUser.email === "" ||
+      tempUser.phone === "" ||
+      tempUser.website === "" ||
+      tempUser.company.name === "" ||
+      tempUser.company.catchPhrase === "" ||
+      tempUser.company.bs === "" ||
+      tempUser.address.street === "" ||
+      tempUser.address.city === ""
+    ) {
+      setValidation({
+        name: tempUser.name === "",
+        username: tempUser.username === "",
+        email: tempUser.email === "",
+        phone: tempUser.phone === "",
+        website: tempUser.website === "",
+        company: {
+          name: tempUser.company.name === "",
+          catchPhrase: tempUser.company.catchPhrase === "",
+          bs: tempUser.company.bs === "",
+        },
+        address: {
+          street: tempUser.address.street === "",
+          city: tempUser.address.city === "",
+        },
+      });
+
+      return;
+    }
+
     if (isEdit) {
       dispatch({ type: ActionType.EDIT_USER, payload: tempUser });
     } else {
@@ -48,7 +100,11 @@ export default function UserForm(props: UserFormProps) {
         sx={{ marginTop: 2, padding: 3 }}
       >
         <Stack spacing={3} direction="column">
-          <Typography variant="h4">Edit User</Typography>
+          {isEdit ? (
+            <Typography variant="h4">Edit User</Typography>
+          ) : (
+            <Typography variant="h4">Create User</Typography>
+          )}
 
           {/* User avatar (Not modifable) */}
           <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -62,16 +118,20 @@ export default function UserForm(props: UserFormProps) {
           {/* User name */}
           <TextField
             label="Name"
+            error={validation.name}
+            helperText={validation.name && "This field is required"}
             value={tempUser.name}
             onChange={(e) => setTempUser({ ...tempUser, name: e.target.value })}
           />
 
           {/* User ID (disabled) */}
-          <TextField label="User ID" value={tempUser.id} disabled />
+          {isEdit && <TextField label="User ID" value={tempUser.id} disabled />}
 
           {/* User username */}
           <TextField
             label="Username"
+            error={validation.username}
+            helperText={validation.username && "This field is required"}
             value={tempUser.username}
             onChange={(e) =>
               setTempUser({ ...tempUser, username: e.target.value })
@@ -81,6 +141,8 @@ export default function UserForm(props: UserFormProps) {
           {/* User email */}
           <TextField
             label="Email"
+            error={validation.email}
+            helperText={validation.email && "This field is required"}
             value={tempUser.email}
             onChange={(e) =>
               setTempUser({ ...tempUser, email: e.target.value })
@@ -90,6 +152,8 @@ export default function UserForm(props: UserFormProps) {
           {/* User phone */}
           <TextField
             label="Phone"
+            error={validation.phone}
+            helperText={validation.phone && "This field is required"}
             value={tempUser.phone}
             onChange={(e) =>
               setTempUser({ ...tempUser, phone: e.target.value })
@@ -99,6 +163,8 @@ export default function UserForm(props: UserFormProps) {
           {/* User website */}
           <TextField
             label="Website"
+            error={validation.website}
+            helperText={validation.website && "This field is required"}
             value={tempUser.website}
             onChange={(e) =>
               setTempUser({ ...tempUser, website: e.target.value })
@@ -111,6 +177,8 @@ export default function UserForm(props: UserFormProps) {
           {/* User company name */}
           <TextField
             label="Company"
+            error={validation.company.name}
+            helperText={validation.company.name && "This field is required"}
             value={tempUser.company.name}
             onChange={(e) =>
               setTempUser({
@@ -123,6 +191,10 @@ export default function UserForm(props: UserFormProps) {
           {/* User company catch phrase */}
           <TextField
             label="Catch Phrase"
+            error={validation.company.catchPhrase}
+            helperText={
+              validation.company.catchPhrase && "This field is required"
+            }
             value={tempUser.company.catchPhrase}
             onChange={(e) =>
               setTempUser({
@@ -135,6 +207,8 @@ export default function UserForm(props: UserFormProps) {
           {/* User company bs */}
           <TextField
             label="BS"
+            error={validation.company.bs}
+            helperText={validation.company.bs && "This field is required"}
             value={tempUser.company.bs}
             onChange={(e) =>
               setTempUser({
@@ -150,6 +224,8 @@ export default function UserForm(props: UserFormProps) {
           {/* User address */}
           <TextField
             label="Street"
+            error={validation.address.street}
+            helperText={validation.address.street && "This field is required"}
             value={tempUser.address.street}
             onChange={(e) =>
               setTempUser({
@@ -162,6 +238,8 @@ export default function UserForm(props: UserFormProps) {
           {/* User address */}
           <TextField
             label="City"
+            error={validation.address.city}
+            helperText={validation.address.city && "This field is required"}
             value={tempUser.address.city}
             onChange={(e) =>
               setTempUser({
@@ -173,20 +251,10 @@ export default function UserForm(props: UserFormProps) {
 
           {/* Buttons Stack */}
           <Stack direction="row" spacing={2}>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => handleSubmit()}
-            >
-              Edit
+            <Button onClick={() => handleSubmit()}>
+              {isEdit ? "Edit" : "Create"}
             </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => router.push("/")}
-            >
-              Cancel
-            </Button>
+            <Button onClick={() => router.push("/")}>Cancel</Button>
           </Stack>
         </Stack>
       </Paper>
