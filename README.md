@@ -36,6 +36,22 @@ list data will also be updated accordingly.
 
 ## UI
 
+- Search: It uses [FuseJS](https://fusejs.io/) to search for users. The search is case insensitive and it searches for the name, email and company name.
+- Users: Are shown in a table. The table has a header with the columns: ID, Name, 
+Email, City, Company. If you click a row, it shows a modal with the information of the User. 
+- User Modal: It shows the user information. It has 3 buttons: Edit, Return and Delete/Remove.
+
+## Pages
+
+The application has 3 pages:
+- Home (/): It shows the search bar and the users table.
+- Edit User (/edit/{id}): It shows a form with the user information. It has 2 buttons: Edit and Cancel.
+- Add User (/edit, /add, /new): It re-utiliztes the same edit form with some minor changes. It has 2 buttons: Create and Cancel.
+/add and /new are aliases for /edit.
+
+## Components
+
+
 ## Global State
 
 The application has a global state made using react built-in context api.
