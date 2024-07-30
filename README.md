@@ -12,6 +12,66 @@ list data will also be updated accordingly.
 - Centralize state using Redux, NextJS Context or any state management 
 - Configure JS/TS config environment including Eslint and Prettier 
 - Using TypeScript along with models, type and/or interfaces. 
+
+# Structure
+
+## UI
+
+## Global State
+
+The application has a global state made using react built-in context api.
+```bash
+src/store
+├── actions.ts
+├── context.ts
+├── reducer.ts
+└── types.ts
+```
+The data types are defines in `types.ts`.
+All the actions and its payloads are defined in `actions.ts`.
+`reducer.ts` has the reducer functions where all dispatched actions are handled.
+`context.ts` provides the context definition.
+
+### How it works
+In `/src/app/StateProvider` we define a csr (client-side rendering) component
+that wrapps the state provider defined in `src/store`. The `StateProvider` is placed
+in the `RootLayout` as:
+
+```ts
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <StateProvider>
+          {children}
+        </StateProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+To access to the state from a csr component. We just need to use
+`useContext` and save the state in the component.
+
+```ts
+const { state, dispatch } = useContext(StateContext);
+
+useEffect(() => {
+    console.log(state.users);
+  }, []);
+```
+
+This approach has downsides, like making all components that uses the state
+to re-render every time the state changes. In this project thats not an issue
+because we work with very small amount of data. For bigger projects its better
+to use other alternative like [Redux](https://redux.js.org/) or 
+[Zustand](https://github.com/pmndrs/zustand)
+
   
 ## Developing
 
