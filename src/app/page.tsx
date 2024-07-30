@@ -6,20 +6,16 @@ import "@fontsource/roboto/700.css";
 
 // Components
 import Foo from "@/components/Foo";
-import {
-  Container,
-} from "@mui/material";
+import { Container } from "@mui/material";
 import UsersTable from "@/components/UsersTable";
 
 export default function Home() {
   return (
     <>
       <Container>
-
         {/* Users Table */}
         <UsersTable />
       </Container>
-
     </>
   );
 }

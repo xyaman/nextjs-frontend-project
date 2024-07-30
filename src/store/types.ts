@@ -1,6 +1,6 @@
 export interface State {
   users: User[];
-  editingUser: User | null,
+  editingUser: User | null;
 }
 
 export const initialState: State = {

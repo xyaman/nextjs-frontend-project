@@ -10,9 +10,7 @@ type UserFormProps = {
   params: { id: string };
 };
 
-
 export default function EditUser(props: UserFormProps) {
-
   const { state, dispatch } = useContext(StateContext);
   const { params } = props;
 
@@ -26,7 +24,10 @@ export default function EditUser(props: UserFormProps) {
       fetchUsersWithImages()
         .then((users) => {
           dispatch({ type: ActionType.INSERT_USERS, payload: users });
-          dispatch({ type: ActionType.SET_EDITING_USER, payload: users[parseInt(params.id)] });
+          dispatch({
+            type: ActionType.SET_EDITING_USER,
+            payload: users[parseInt(params.id)],
+          });
         })
         .catch((e) => {
           console.error(e);

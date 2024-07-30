@@ -28,7 +28,9 @@ export const stateReducer = (state: State, action: Action): State => {
     case ActionType.REMOVE_USER:
       // We shoudnt modify directly the state, this is not very efficient,
       // but we are going to clone the whole users data, then edit.
-      const removeUsers = state.users.filter((user) => user.id !== action.payload.id);
+      const removeUsers = state.users.filter(
+        (user) => user.id !== action.payload.id,
+      );
 
       return { editingUser: null, users: removeUsers };
 

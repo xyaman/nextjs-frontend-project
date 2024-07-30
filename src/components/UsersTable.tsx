@@ -64,7 +64,6 @@ export default function UsersTable() {
   const [inputText, setInputText] = useState("");
   const [currentRows, setCurrentRows] = useState<User[]>([]);
 
-
   // We fetch when this element is mounted
   useEffect(() => {
     // Prevent fetching if we already have users.
@@ -95,7 +94,6 @@ export default function UsersTable() {
       // We map the results to get the original object
       const result = fuse.search(inputText).map((v) => v.item);
       setCurrentRows(result);
-
     } else {
       // We calculate the current rows to display
       let start = page * rowsPerPage;
@@ -106,7 +104,6 @@ export default function UsersTable() {
       setCurrentRows(state.users.slice(start, end));
     }
   }, [page, inputText, state.users]);
-
 
   if (state.users.length === 0) {
     return (
@@ -130,9 +127,7 @@ export default function UsersTable() {
     <>
       <Paper elevation={2} sx={{ width: "100%", marginTop: 3, padding: 1 }}>
         {/* Table Title + Search */}
-        <Box
-          sx={tableHeaderStyle}
-        >
+        <Box sx={tableHeaderStyle}>
           <Typography variant="h5">Users</Typography>
           <TextField
             label="Search"
@@ -162,9 +157,11 @@ export default function UsersTable() {
                   key={user.id}
                   onClick={() => {
                     setModalData({ user: user, show: true });
-                    dispatch({ type: ActionType.SET_EDITING_USER, payload: user });
-                  }
-                  }
+                    dispatch({
+                      type: ActionType.SET_EDITING_USER,
+                      payload: user,
+                    });
+                  }}
                 >
                   {/* ID */}
                   <TableCell align="left">#{user.id}</TableCell>

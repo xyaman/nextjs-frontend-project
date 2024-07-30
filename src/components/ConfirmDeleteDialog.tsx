@@ -1,5 +1,12 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
-import { useEffect, useState } from 'react';
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
+import { useEffect, useState } from "react";
 
 type ConfirmDeleteDialogProps = {
   onConfirm: () => void;
@@ -11,11 +18,11 @@ type ConfirmDeleteDialogProps = {
   cancelText: string;
 };
 
-
 // ConfirmDeleteDialog is a simple dialog component that asks the user to confirm a delete action.
 // It has two buttons, one to confirm the action and another to cancel it.
 export default function ConfirmDeleteDialog(props: ConfirmDeleteDialogProps) {
-  const { onConfirm, onCancel, visible, title, text, okText, cancelText } = props;
+  const { onConfirm, onCancel, visible, title, text, okText, cancelText } =
+    props;
 
   return (
     <>
@@ -25,9 +32,7 @@ export default function ConfirmDeleteDialog(props: ConfirmDeleteDialogProps) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          {title}
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             {text}
@@ -43,4 +48,3 @@ export default function ConfirmDeleteDialog(props: ConfirmDeleteDialogProps) {
     </>
   );
 }
-

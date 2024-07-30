@@ -14,5 +14,4 @@ export type Action =
   | { type: ActionType.CREATE_USER; payload: User }
   | { type: ActionType.EDIT_USER; payload: User }
   | { type: ActionType.REMOVE_USER; payload: User }
-  | { type: ActionType.SET_EDITING_USER; payload: User | null }
-  ;
+  | { type: ActionType.SET_EDITING_USER; payload: User | null };

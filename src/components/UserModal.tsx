@@ -1,4 +1,14 @@
-import { Avatar, Box, Button, List, ListItem, ListItemText, Modal, Stack, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Button,
+  List,
+  ListItem,
+  ListItemText,
+  Modal,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { User } from "@/store/types";
 import Link from "next/link";
 import { StateContext } from "@/store/context";
@@ -26,7 +36,6 @@ type UserModalProps = {
 
 // UserModal is a modal component that displays user information in a simple layout.
 export default function UserModal(props: UserModalProps) {
-
   const { user, show, onClose } = props;
   const { dispatch } = useContext(StateContext);
 
@@ -80,7 +89,10 @@ export default function UserModal(props: UserModalProps) {
               <ListItemText primary="Company" secondary={user?.company.name} />
             </ListItem>
             <ListItem>
-              <ListItemText primary="Address" secondary={`${user?.address.street}, ${user?.address.city}`} />
+              <ListItemText
+                primary="Address"
+                secondary={`${user?.address.street}, ${user?.address.city}`}
+              />
             </ListItem>
           </List>
 
@@ -93,7 +105,9 @@ export default function UserModal(props: UserModalProps) {
               <Button onClick={onClose}>Close</Button>
             </Stack>
 
-            <Button color="error" onClick={() => setShowDialog(true)}>Delete User</Button>
+            <Button color="error" onClick={() => setShowDialog(true)}>
+              Delete User
+            </Button>
           </Box>
         </Stack>
         <ConfirmDeleteDialog
@@ -109,4 +123,3 @@ export default function UserModal(props: UserModalProps) {
     </Modal>
   );
 }
-
