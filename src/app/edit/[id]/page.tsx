@@ -22,9 +22,12 @@ export default function EditUser(props: UserFormProps) {
       fetchUsersWithImages()
         .then((users) => {
           dispatch({ type: ActionType.INSERT_USERS, payload: users });
+
+          // Set the editing user
+          // The ids as 1-based index
           dispatch({
             type: ActionType.SET_EDITING_USER,
-            payload: users[parseInt(params.id)],
+            payload: users[parseInt(params.id) - 1],
           });
         })
         .catch((e) => {
