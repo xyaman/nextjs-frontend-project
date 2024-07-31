@@ -5,7 +5,8 @@ import AddIcon from "@mui/icons-material/Add";
 import { useRouter } from "next/navigation";
 
 const fabStyle = {
-  position: "absolute",
+  position: "sticky",
+  float: "right",
   bottom: 16,
   right: 16,
   backgroundColor: "#212a40",
