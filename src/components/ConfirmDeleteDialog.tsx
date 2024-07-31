@@ -6,7 +6,6 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@mui/material";
-import { useEffect, useState } from "react";
 
 type ConfirmDeleteDialogProps = {
   onConfirm: () => void;
@@ -39,8 +38,8 @@ export default function ConfirmDeleteDialog(props: ConfirmDeleteDialogProps) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={onCancel}>{cancelText}</Button>
-          <Button onClick={onConfirm} autoFocus>
+          <Button onClick={onCancel} >{cancelText}</Button>
+          <Button onClick={onConfirm} autoFocus color="error">
             {okText}
           </Button>
         </DialogActions>

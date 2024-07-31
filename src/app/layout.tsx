@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import FloatingAddUserButton from "@/components/FloatingAddUserButton";
 
 export const metadata: Metadata = {
-  title: "NextJS Frontend",
+  title: "Home | NextJS Frontend",
   description: "INYOU Test Project",
 };
 
