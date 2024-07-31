@@ -30,6 +30,17 @@ export default function EditUser(props: UserFormProps) {
         .then((users) => {
           dispatch({ type: ActionType.INSERT_USERS, payload: users });
 
+          // Check if id is a valid number
+          const userId = parseInt(params.id);
+
+          if (userId > users.length + 1 || userId < 1) {
+            dispatch({
+              type: ActionType.SET_FETCH_ERROR,
+              payload: `User with id ${params.id} not found`,
+            });
+            return;
+          }
+
           // Set the editing user
           // The ids as 1-based index
           dispatch({
@@ -60,9 +71,7 @@ export default function EditUser(props: UserFormProps) {
             flexDirection: "column",
           }}
         >
-          <Typography variant="h5">
-            Error fetching users: {state.fetchError}
-          </Typography>
+          <Typography variant="h5">Error: {state.fetchError}</Typography>
           <a href="/">
             <Button>Reload</Button>
           </a>

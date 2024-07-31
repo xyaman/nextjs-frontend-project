@@ -93,7 +93,7 @@ export default function UsersTable() {
 
       // We do a search using Fuse.js
       const options = {
-        keys: ["name", "email", "company.name"],
+        keys: ["name", "email", "id", "address.city", "company.name"],
         threshold: 0.2,
       };
       const fuse = new Fuse(state.users, options);
