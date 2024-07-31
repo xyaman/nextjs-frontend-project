@@ -4,12 +4,9 @@ export const metadata = {
 };
 
 export default function EditLayout({
-  children }: Readonly<{
-    children: React.ReactNode;
-  }>) {
-  return (
-    <>
-      {children}
-    </>
-  );
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return <>{children}</>;
 }
