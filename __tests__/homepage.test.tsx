@@ -40,3 +40,17 @@ describe("New", () => {
     expect(screen.getByRole("progressbar")).toBeInTheDocument();
   });
 });
+
+// Snaphot testing
+describe("Snapshots", () => {
+  it("should match snapshot", () => {
+    const { asFragment } = render(<HomeLayout children={<></>} />);
+    expect(asFragment()).toMatchSnapshot();
+
+    const { asFragment: asFragment2 } = render(<EditPage params={{ id: "1" }} />);
+    expect(asFragment2()).toMatchSnapshot();
+
+    const { asFragment: asFragment3 } = render(<AddPage />);
+    expect(asFragment3()).toMatchSnapshot();
+  });
+});

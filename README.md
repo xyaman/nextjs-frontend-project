@@ -36,10 +36,9 @@ list data will also be updated accordingly.
 
 ## UI
 
-- Search: It uses [FuseJS](https://fusejs.io/) to search for users. The search is case insensitive and it searches for the name, email and company name.
+- Search: It uses [FuseJS](https://fusejs.io/) to search for users. The search is case insensitive.
 - Users: Are shown in a table. The table has a header with the columns: ID, Name, 
 Email, City, Company. If you click a row, it shows a modal with the information of the User. 
-- User Modal: It shows the user information. It has 3 buttons: Edit, Return and Delete/Remove.
 
 ## Pages
 
@@ -51,6 +50,13 @@ The application has 3 pages:
 
 ## Components
 
+- `UserTable`: It shows the users in a table. It has a search bar to filter users.
+- `UserModal`: It shows the user information in a modal. It has 3 buttons: Edit, Return and Delete/Remove.
+- `UserForm`: It shows a form with the user information. It has 2 buttons: Create/Edit and Cancel.
+- `NavBar`: It shows the navigation bar.
+- `Footer`: It shows the footer.
+- `FloatingAddUserButton`: It shows a floating button to add a new user. It is only shown in the Home page.
+- `ConfirmDeleteDialog`: It shows a dialog to confirm the deletion of a user. Its only called in the UserModal.
 
 ## Global State
 
@@ -115,8 +121,10 @@ to use other alternative like [Redux](https://redux.js.org/) or
 ## Developing
 
 ```bash
-# Run local server
+# Install dependencies
 npm install
+
+# Run local server
 npm run dev
 
 # Build
@@ -125,7 +133,7 @@ npm run build
 # Tests
 npm tests
 
-# Lint
+# Lint check
 npx eslint .
 
 # Format (uses prettier)
