@@ -21,7 +21,7 @@ type UserFormProps = {
 };
 
 export default function UserForm(props: UserFormProps) {
-  const { state, dispatch } = useContext(StateContext);
+  const { dispatch } = useContext(StateContext);
   const { user, isEdit } = props;
 
   const [tempUser, setTempUser] = useState<User>(user);

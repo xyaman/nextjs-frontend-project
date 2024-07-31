@@ -23,7 +23,7 @@ export const stateReducer = (state: State, action: Action): State => {
         return user;
       });
 
-      return { editingUser: null, users: editUsers };
+      return { editingUser: null, users: editUsers, fetchError: null };
 
     case ActionType.REMOVE_USER:
       // We shoudnt modify directly the state, this is not very efficient,
@@ -32,10 +32,13 @@ export const stateReducer = (state: State, action: Action): State => {
         (user) => user.id !== action.payload.id,
       );
 
-      return { editingUser: null, users: removeUsers };
+      return { editingUser: null, users: removeUsers, fetchError: null };
 
     case ActionType.SET_EDITING_USER:
       return { ...state, editingUser: action.payload };
+
+    case ActionType.SET_FETCH_ERROR:
+      return { ...state, fetchError: action.payload };
 
     default:
       return state;

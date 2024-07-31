@@ -2,7 +2,9 @@ import { User } from "@/store/types";
 
 // This function fetches users from the JSONPlaceholder API and then fetches images from the Picsum API.
 export async function fetchUsersWithImages(): Promise<User[]> {
-  const userRes = await fetch("https://jsonplaceholder.typicode.com/users");
+  const userRes = await fetch("https://jsonplaceholder.typicode.com/users", {
+    signal: AbortSignal.timeout(5000),
+  });
   const userJSON: User[] = await userRes.json();
 
   return userJSON.map((user) => {

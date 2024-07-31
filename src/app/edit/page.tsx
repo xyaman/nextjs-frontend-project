@@ -6,14 +6,17 @@ import { ActionType } from "@/store/actions";
 import { StateContext } from "@/store/context";
 import { fetchUsersWithImages } from "@/utils/api";
 import { useContext, useEffect } from "react";
-
-type UserFormProps = {
-  params: { id: string };
-};
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Paper,
+  Typography,
+} from "@mui/material";
 
 // AddUser is a copy of EditUser with a different name, the difference is that
 // UserForm is called with isEdit={false} instead of isEdit={true}
-export default function AddUser(props: UserFormProps) {
+export default function AddUser() {
   const { state, dispatch } = useContext(StateContext);
 
   const user: User = {
@@ -51,9 +54,55 @@ export default function AddUser(props: UserFormProps) {
         })
         .catch((e) => {
           console.error(e);
+          dispatch({
+            type: ActionType.SET_FETCH_ERROR,
+            payload: "Failed to fetch users",
+          });
         });
     }
   }, []);
+
+  if (state.fetchError) {
+    return (
+      <Paper elevation={2} sx={{ width: "100%", marginTop: 3, padding: 1 }}>
+        {/* Reaload website element */}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: 200,
+            flexDirection: "column",
+          }}
+        >
+          <Typography variant="h5">
+            Error fetching users: {state.fetchError}
+          </Typography>
+          <a href="/">
+            <Button>Reload</Button>
+          </a>
+        </Box>
+      </Paper>
+    );
+  }
+
+  if (state.users.length === 0) {
+    return (
+      <Paper elevation={2} sx={{ width: "100%", marginTop: 3, padding: 1 }}>
+        {/* Center a loading element */}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: 200,
+          }}
+        >
+          <CircularProgress sx={{ color: "#f26c69" }} />
+        </Box>
+      </Paper>
+    );
+  }
 
   return <UserForm user={user} isEdit={false} />;
 }

@@ -17,6 +17,7 @@ import {
   TextField,
   Box,
   CircularProgress,
+  Button,
 } from "@mui/material";
 
 import { User } from "@/store/types";
@@ -74,7 +75,13 @@ export default function UsersTable() {
       .then((users) => {
         dispatch({ type: ActionType.INSERT_USERS, payload: users });
       })
-      .catch((e) => alert("error while fetching: " + e));
+      .catch((e) => {
+        console.log(e);
+        dispatch({
+          type: ActionType.SET_FETCH_ERROR,
+          payload: "Failed to fetch users API",
+        });
+      });
   }, []);
 
   // This is triggered every time we change the page or the input text,
@@ -104,6 +111,30 @@ export default function UsersTable() {
       setCurrentRows(state.users.slice(start, end));
     }
   }, [page, inputText, state.users]);
+
+  if (state.fetchError) {
+    return (
+      <Paper elevation={2} sx={{ width: "100%", marginTop: 3, padding: 1 }}>
+        {/* Reaload website element */}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: 200,
+            flexDirection: "column",
+          }}
+        >
+          <Typography variant="h5">
+            Error fetching users: {state.fetchError}
+          </Typography>
+          <a href="/">
+            <Button>Reload</Button>
+          </a>
+        </Box>
+      </Paper>
+    );
+  }
 
   if (state.users.length === 0) {
     return (

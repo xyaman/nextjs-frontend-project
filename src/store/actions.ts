@@ -7,6 +7,7 @@ export enum ActionType {
   REMOVE_USER = "REMOVE_USER",
 
   SET_EDITING_USER = "SET_EDITING_USER",
+  SET_FETCH_ERROR = "SET_FETCH_ERROR",
 }
 
 export type Action =
@@ -14,4 +15,5 @@ export type Action =
   | { type: ActionType.CREATE_USER; payload: User }
   | { type: ActionType.EDIT_USER; payload: User }
   | { type: ActionType.REMOVE_USER; payload: User }
-  | { type: ActionType.SET_EDITING_USER; payload: User | null };
+  | { type: ActionType.SET_EDITING_USER; payload: User | null }
+  | { type: ActionType.SET_FETCH_ERROR; payload: string };
