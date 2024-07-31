@@ -40,6 +40,9 @@ list data will also be updated accordingly.
 - Users: Are shown in a table. The table has a header with the columns: ID, Name, 
 Email, City, Company. If you click a row, it shows a modal with the information of the User. 
 
+> Images changes everytime the browser make a request to the user image field, and it's 
+because the API returns a random image every time. The user image field doesn't change
+
 ## Pages
 
 The application has 3 pages:
