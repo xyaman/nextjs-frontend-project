@@ -44,10 +44,10 @@ Email, City, Company. If you click a row, it shows a modal with the information 
 ## Pages
 
 The application has 3 pages:
-- Home (/): It shows the search bar and the users table.
-- Edit User (/edit/{id}): It shows a form with the user information. It has 2 buttons: Edit and Cancel.
-- Add User (/edit, /add, /new): It re-utiliztes the same edit form with some minor changes. It has 2 buttons: Create and Cancel.
-/add and /new are aliases for /edit.
+- Home (`/`): It shows the search bar and the users table.
+- Edit User (`/edit/{id}`): It shows a form with the user information. It has 2 buttons: Edit and Cancel.
+- Add User (`/edit`, `/add`, `/new`): It re-utiliztes the same edit form with some minor changes. It has 2 buttons: Create and Cancel.
+`/add` and `/new` are aliases for `/edit`.
 
 ## Components
 
