@@ -7,7 +7,6 @@ import "@fontsource/roboto/700.css";
 // Components
 import { Container } from "@mui/material";
 import UsersTable from "@/components/UsersTable";
-import FloatingAddUserButton from "@/components/FloatingAddUserButton";
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <Container>
         {/* Users Table */}
         <UsersTable />
-        <FloatingAddUserButton />
       </Container>
     </>
   );

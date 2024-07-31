@@ -5,6 +5,7 @@ import StateProvider from "./StateProvider";
 import { CssBaseline } from "@mui/material";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import FloatingAddUserButton from "@/components/FloatingAddUserButton";
 
 export const metadata: Metadata = {
   title: "NextJS Frontend",
@@ -24,6 +25,7 @@ export default function RootLayout({
           <NavBar />
           {children}
           <Footer />
+          <FloatingAddUserButton />
         </StateProvider>
       </body>
     </html>

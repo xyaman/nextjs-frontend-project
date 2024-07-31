@@ -2,7 +2,7 @@
 
 import { Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const fabStyle = {
   position: "sticky",
@@ -16,6 +16,11 @@ const fabStyle = {
 
 export default function FloatingAddUserButton() {
   const router = useRouter();
+  const pathname = usePathname();
+
+  // get current path client component
+  if (pathname !== "/") return <> </>;
+
   return (
     <Fab sx={fabStyle} aria-label="add" onClick={() => router.push("/add")}>
       <AddIcon />
